@@ -1,0 +1,185 @@
+---
+title: "Activity 8"
+author: "Katie Clayton"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+# **Collatz Conjecture**
+
+The collatz conjecture is used to transform every positive integer into one. Two arithmetic equations are input using if statements and else if statements in order to get to the integer one. If the number is even, the function will use the number and divide it by two. If the number is odd, it will be multiplied by three and added to one. Once the number gets to one, the function will stop. The purpose is to find out the most frequent stopping time based off of this function.
+
+```{r}
+#name function and add nouns
+getCollatz <- function(number,count=0)
+  #first part of collatz conjecture, when number is 1
+{if (number == 1){
+  return (count)}
+  #when number is even, divide by two
+  else if (number%%2==0)
+    {getCollatz(number/2,count+1)}
+  #when number is odd, multiply by 3 and add 1
+  else{
+    getCollatz(number*3+1,count+1)}}
+# create function for histogram
+stoppingNumbers <- sapply(
+# label x axis and incldue function that needs to be called
+X = 1:10000,
+FUN = getCollatz
+)
+# make the histogram
+hist(stoppingNumbers)
+```
+
+According to the histogram, the most frequent stopping number is 50. This means that the function, on average, runs through the arithmetic operations 50 times before outputting the number one.
+
+# Diamonds Data Visualizations
+
+A viewer can gain the most knowledge from the diamonds data through a data visualization. A scatter plot is most appropriate for this set of data as it can include each observation and also a line of best fit to show the linear regression as the weight of the diamond increases. A summary table is also useful as it can display actual numbers and percentages, making it easy for a viewer to compare differences between each diamond.
+
+```{r}
+# filter data so there is no more than four groupings on one graph
+library(ggplot2)
+data(diamonds)
+library(dplyr)
+diamonds %>%
+filter(color %in% c("J", "E", "I")) %>%
+
+# create graph using ggplot and assign variables
+ggplot(
+mapping = aes(x = carat, y = price, colour = color)
+) +
+
+# establish size for the line of best fit and the points, as well as shape
+# for points
+geom_point(shape = "circle", size = 1.5) +
+geom_smooth(span = 0.75, se = FALSE) +
+
+# give each color a color which will display the legend
+scale_color_manual(
+values = c(D = "#0D0B0C",
+F = "#888386",
+G = "#00A7FF",
+H = "#FF8E00",
+J = "#000000",
+E = "#8A8591",
+I = "#DC9423")
+) +
+
+# label the axis, add a title
+labs(
+x = "Weight of Diamond (carats)",
+y = "Price of Diamond (dollars)",
+title = "Price of Diamond (dollars) vs. Color and Weight (carats)"
+)+
+theme_minimal()
+
+# create second graph with the remaining four variables
+library(ggplot2)
+data(diamonds)
+library(dplyr)
+diamonds %>%
+filter(color %in% c("D", "F", "G", "H")) %>%
+
+# create graph using ggplot and assign variables
+ggplot(
+mapping = aes(x = carat, y = price, colour = color)
+) +
+
+# establish size for the line of best fit and the points, as well as shape
+# for points
+geom_point(shape = "circle", size = 1.5) +
+geom_smooth(span = 0.75, se = FALSE) +
+
+# give each color a color which will display the legend
+scale_color_manual(
+values = c(D = "#0D0B0C",
+F = "#888386",
+G = "#00A7FF",
+H = "#FF8E00",
+J = "#000000",
+E = "#8A8591",
+I = "#DC9423")
+) +
+
+# label the axis, add a title
+labs(
+x = "Weight of Diamond (carats)",
+y = "Price of Diamond (dollars)",
+title = "Price of Diamond (dollars) vs. Color and Weight (carats)"
+)+
+theme_minimal()
+```
+
+As shown above, the different types of diamonds are listed along the side of the graph. Each axis is specifically labeled and the lines of best fit show the different trends between the different types of diamonds. In general, a reader can see that the price of a diamond increases as the weight of the diamond increases. However, looking at the different graphs, there can be distinct differences as to how much faster one diamond increases compared to another by looking at the steepness of the line.
+
+```{r Diamonds Data Summary Table}
+## load necessary packages
+library(ggplot2)
+library(dplyr)
+library(knitr)
+library(kableExtra)
+library(janitor)
+# load diamonds data
+data(diamonds)
+# name variable
+depthDiamonds <- diamonds %>%
+# choose cut and the depth which is z
+group_by(cut) %>%
+select(cut, z) %>%
+# input the 10 statistics needed, not forgetting na.rm = TRUE at the end of the line
+summarize(
+across(
+.cols = where(is.numeric),
+.fns = list(
+min = ~min(z, na.rm = TRUE),
+Q1 = ~quantile(z, probs = 0.20, na.rm = TRUE),
+Q2 = ~quantile(z, probs = 0.40, na.rm = TRUE),
+median = ~median(z, na.rm = TRUE),
+Q3 = ~quantile(z, probs = 0.60, na.rm = TRUE),
+Q4 = ~quantile(z, probs = 0.80, na.rm = TRUE),
+max = ~max(z, na.rm = TRUE),
+sam = ~mean(z, na.rm = TRUE),
+sasd = ~sd(z, na.rm = TRUE)
+),
+round(digits = 2)
+),
+# format the numbers so the big ones have a , if needed
+count = format(n(), big.mark = ","),
+)
+# give the columns names
+colnames(depthDiamonds) <- c("Cut", "Min", "1st Quintile", "2nd Quintile", "Median", "3rd Quintile", "4th Quintile", "Max", "Arithmetic Mean", "Arithmetic Standard Deviation", "Count")
+# use piping and kable function to output the table
+depthDiamonds %>%
+kable(
+# add title, grid lines and align the numbers with words
+caption = "Statistics of the Depth vs Cut of a Diamond",
+booktabs = TRUE,
+align = c("l", rep("c", 6))
+) %>%
+kableExtra::kable_styling(
+bootstrap_options = c("striped", "condensed"),
+font_size = 16
+) %>%
+kableExtra::kable_classic()
+```
+
+The summary table of the diamonds data includes each cut of diamond and 10 different statistics pertaining to the depth of the specific cut. A viewer can gain a sense of how many diamonds there are per cut, which type of cut has the highest maximum and much more. This summary table would be most useful when trying to gain specific statistics about the depth of a certain cut of a diamond.
+
+# Knowledge from STAT 184
+
+Stat 184 has taught me a lot of different things so far. Coming into this class, I had very little prior coding experience so I was very nervous. Although, as the class has continued, I have become more comfortable with reading code and typing it. I have also really enjoyed using the different packages within R, especially ggplot. I have also gained other knowledge about data visualizations from Kosslyn and Tufte. They specified things to avoid, like ducks, as well as things to include that will help make the visualization most pleasing to the eye. It has been very helpful to have all the slides and other material posted in order to look back on when getting confused. I have learned the importance of using tidy data and also how to wrangle the data so it is easier to work with. The lesson that I remember most and will continue to apply is the idea of PCIP. By following those steps, it has led me to solutions quicker. Before taking this class, I had zero experience in statistical coding and now I feel as if I have tremendously increased my knowledge on this topic.
