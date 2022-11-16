@@ -1,0 +1,461 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Activity 8},
+  pdfauthor={Katie Clayton},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Activity 8}
+\author{Katie Clayton}
+\date{2022-11-02}
+
+\begin{document}
+\maketitle
+
+\hypertarget{r-markdown}{%
+\subsection{R Markdown}\label{r-markdown}}
+
+This is an R Markdown document. Markdown is a simple formatting syntax
+for authoring HTML, PDF, and MS Word documents. For more details on
+using R Markdown see \url{http://rmarkdown.rstudio.com}.
+
+When you click the \textbf{Knit} button a document will be generated
+that includes both content as well as the output of any embedded R code
+chunks within the document. You can embed an R code chunk like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(cars)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+\end{verbatim}
+
+\hypertarget{collatz-conjecture}{%
+\section{\texorpdfstring{\textbf{Collatz
+Conjecture}}{Collatz Conjecture}}\label{collatz-conjecture}}
+
+The collatz conjecture is used to transform every positive integer into
+one. Two arithmetic equations are input using if statements and else if
+statements in order to get to the integer one. If the number is even,
+the function will use the number and divide it by two. If the number is
+odd, it will be multiplied by three and added to one. Once the number
+gets to one, the function will stop. The purpose is to find out the most
+frequent stopping time based off of this function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#name function and add nouns}
+\NormalTok{getCollatz }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(number,}\AttributeTok{count=}\DecValTok{0}\NormalTok{)}
+  \CommentTok{\#first part of collatz conjecture, when number is 1}
+\NormalTok{\{}\ControlFlowTok{if}\NormalTok{ (number }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)\{}
+  \FunctionTok{return}\NormalTok{ (count)\}}
+  \CommentTok{\#when number is even, divide by two}
+  \ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (number}\SpecialCharTok{\%\%}\DecValTok{2}\SpecialCharTok{==}\DecValTok{0}\NormalTok{)}
+\NormalTok{    \{}\FunctionTok{getCollatz}\NormalTok{(number}\SpecialCharTok{/}\DecValTok{2}\NormalTok{,count}\SpecialCharTok{+}\DecValTok{1}\NormalTok{)\}}
+  \CommentTok{\#when number is odd, multiply by 3 and add 1}
+  \ControlFlowTok{else}\NormalTok{\{}
+    \FunctionTok{getCollatz}\NormalTok{(number}\SpecialCharTok{*}\DecValTok{3}\SpecialCharTok{+}\DecValTok{1}\NormalTok{,count}\SpecialCharTok{+}\DecValTok{1}\NormalTok{)\}\}}
+\CommentTok{\# create function for histogram}
+\NormalTok{stoppingNumbers }\OtherTok{\textless{}{-}} \FunctionTok{sapply}\NormalTok{(}
+\CommentTok{\# label x axis and incldue function that needs to be called}
+\AttributeTok{X =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{10000}\NormalTok{,}
+\AttributeTok{FUN =}\NormalTok{ getCollatz}
+\NormalTok{)}
+\CommentTok{\# make the histogram}
+\FunctionTok{hist}\NormalTok{(stoppingNumbers)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{activity-8_ClaytonK_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+According to the histogram, the most frequent stopping number is 50.
+This means that the function, on average, runs through the arithmetic
+operations 50 times before outputting the number one.
+
+\hypertarget{diamonds-data-visualizations}{%
+\section{Diamonds Data
+Visualizations}\label{diamonds-data-visualizations}}
+
+A viewer can gain the most knowledge from the diamonds data through a
+data visualization. A scatter plot is most appropriate for this set of
+data as it can include each observation and also a line of best fit to
+show the linear regression as the weight of the diamond increases. A
+summary table is also useful as it can display actual numbers and
+percentages, making it easy for a viewer to compare differences between
+each diamond.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# filter data so there is no more than four groupings on one graph}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{data}\NormalTok{(diamonds)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{diamonds }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{filter}\NormalTok{(color }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"J"}\NormalTok{, }\StringTok{"E"}\NormalTok{, }\StringTok{"I"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+
+\CommentTok{\# create graph using ggplot and assign variables}
+\FunctionTok{ggplot}\NormalTok{(}
+\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ carat, }\AttributeTok{y =}\NormalTok{ price, }\AttributeTok{colour =}\NormalTok{ color)}
+\NormalTok{) }\SpecialCharTok{+}
+
+\CommentTok{\# establish size for the line of best fit and the points, as well as shape}
+\CommentTok{\# for points}
+\FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{shape =} \StringTok{"circle"}\NormalTok{, }\AttributeTok{size =} \FloatTok{1.5}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{span =} \FloatTok{0.75}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{+}
+
+\CommentTok{\# give each color a color which will display the legend}
+\FunctionTok{scale\_color\_manual}\NormalTok{(}
+\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\AttributeTok{D =} \StringTok{"\#0D0B0C"}\NormalTok{,}
+\AttributeTok{F =} \StringTok{"\#888386"}\NormalTok{,}
+\AttributeTok{G =} \StringTok{"\#00A7FF"}\NormalTok{,}
+\AttributeTok{H =} \StringTok{"\#FF8E00"}\NormalTok{,}
+\AttributeTok{J =} \StringTok{"\#000000"}\NormalTok{,}
+\AttributeTok{E =} \StringTok{"\#8A8591"}\NormalTok{,}
+\AttributeTok{I =} \StringTok{"\#DC9423"}\NormalTok{)}
+\NormalTok{) }\SpecialCharTok{+}
+
+\CommentTok{\# label the axis, add a title}
+\FunctionTok{labs}\NormalTok{(}
+\AttributeTok{x =} \StringTok{"Weight of Diamond (carats)"}\NormalTok{,}
+\AttributeTok{y =} \StringTok{"Price of Diamond (dollars)"}\NormalTok{,}
+\AttributeTok{title =} \StringTok{"Price of Diamond (dollars) vs. Color and Weight (carats)"}
+\NormalTok{)}\SpecialCharTok{+}
+\FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using method = 'gam' and formula 'y ~ s(x, bs = "cs")'
+\end{verbatim}
+
+\includegraphics{activity-8_ClaytonK_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# create second graph with the remaining four variables}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{data}\NormalTok{(diamonds)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\NormalTok{diamonds }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{filter}\NormalTok{(color }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"D"}\NormalTok{, }\StringTok{"F"}\NormalTok{, }\StringTok{"G"}\NormalTok{, }\StringTok{"H"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+
+\CommentTok{\# create graph using ggplot and assign variables}
+\FunctionTok{ggplot}\NormalTok{(}
+\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ carat, }\AttributeTok{y =}\NormalTok{ price, }\AttributeTok{colour =}\NormalTok{ color)}
+\NormalTok{) }\SpecialCharTok{+}
+
+\CommentTok{\# establish size for the line of best fit and the points, as well as shape}
+\CommentTok{\# for points}
+\FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{shape =} \StringTok{"circle"}\NormalTok{, }\AttributeTok{size =} \FloatTok{1.5}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{span =} \FloatTok{0.75}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{+}
+
+\CommentTok{\# give each color a color which will display the legend}
+\FunctionTok{scale\_color\_manual}\NormalTok{(}
+\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\AttributeTok{D =} \StringTok{"\#0D0B0C"}\NormalTok{,}
+\AttributeTok{F =} \StringTok{"\#888386"}\NormalTok{,}
+\AttributeTok{G =} \StringTok{"\#00A7FF"}\NormalTok{,}
+\AttributeTok{H =} \StringTok{"\#FF8E00"}\NormalTok{,}
+\AttributeTok{J =} \StringTok{"\#000000"}\NormalTok{,}
+\AttributeTok{E =} \StringTok{"\#8A8591"}\NormalTok{,}
+\AttributeTok{I =} \StringTok{"\#DC9423"}\NormalTok{)}
+\NormalTok{) }\SpecialCharTok{+}
+
+\CommentTok{\# label the axis, add a title}
+\FunctionTok{labs}\NormalTok{(}
+\AttributeTok{x =} \StringTok{"Weight of Diamond (carats)"}\NormalTok{,}
+\AttributeTok{y =} \StringTok{"Price of Diamond (dollars)"}\NormalTok{,}
+\AttributeTok{title =} \StringTok{"Price of Diamond (dollars) vs. Color and Weight (carats)"}
+\NormalTok{)}\SpecialCharTok{+}
+\FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using method = 'gam' and formula 'y ~ s(x, bs = "cs")'
+\end{verbatim}
+
+\includegraphics{activity-8_ClaytonK_files/figure-latex/unnamed-chunk-2-2.pdf}
+
+As shown above, the different types of diamonds are listed along the
+side of the graph. Each axis is specifically labeled and the lines of
+best fit show the different trends between the different types of
+diamonds. In general, a reader can see that the price of a diamond
+increases as the weight of the diamond increases. However, looking at
+the different graphs, there can be distinct differences as to how much
+faster one diamond increases compared to another by looking at the
+steepness of the line.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# load necessary packages}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(knitr)}
+\FunctionTok{library}\NormalTok{(kableExtra)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'kableExtra'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     group_rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(janitor)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'janitor'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     chisq.test, fisher.test
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# load diamonds data}
+\FunctionTok{data}\NormalTok{(diamonds)}
+\CommentTok{\# name variable}
+\NormalTok{depthDiamonds }\OtherTok{\textless{}{-}}\NormalTok{ diamonds }\SpecialCharTok{\%\textgreater{}\%}
+\CommentTok{\# choose cut and the depth which is z}
+\FunctionTok{group\_by}\NormalTok{(cut) }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{select}\NormalTok{(cut, z) }\SpecialCharTok{\%\textgreater{}\%}
+\CommentTok{\# input the 10 statistics needed, not forgetting na.rm = TRUE at the end of the line}
+\FunctionTok{summarize}\NormalTok{(}
+\FunctionTok{across}\NormalTok{(}
+\AttributeTok{.cols =} \FunctionTok{where}\NormalTok{(is.numeric),}
+\AttributeTok{.fns =} \FunctionTok{list}\NormalTok{(}
+\AttributeTok{min =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{min}\NormalTok{(z, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+\AttributeTok{Q1 =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{quantile}\NormalTok{(z, }\AttributeTok{probs =} \FloatTok{0.20}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+\AttributeTok{Q2 =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{quantile}\NormalTok{(z, }\AttributeTok{probs =} \FloatTok{0.40}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+\AttributeTok{median =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{median}\NormalTok{(z, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+\AttributeTok{Q3 =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{quantile}\NormalTok{(z, }\AttributeTok{probs =} \FloatTok{0.60}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+\AttributeTok{Q4 =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{quantile}\NormalTok{(z, }\AttributeTok{probs =} \FloatTok{0.80}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+\AttributeTok{max =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{max}\NormalTok{(z, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+\AttributeTok{sam =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{mean}\NormalTok{(z, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+\AttributeTok{sasd =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{sd}\NormalTok{(z, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{),}
+\FunctionTok{round}\NormalTok{(}\AttributeTok{digits =} \DecValTok{2}\NormalTok{)}
+\NormalTok{),}
+\CommentTok{\# format the numbers so the big ones have a , if needed}
+\AttributeTok{count =} \FunctionTok{format}\NormalTok{(}\FunctionTok{n}\NormalTok{(), }\AttributeTok{big.mark =} \StringTok{","}\NormalTok{),}
+\NormalTok{)}
+\CommentTok{\# give the columns names}
+\FunctionTok{colnames}\NormalTok{(depthDiamonds) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Cut"}\NormalTok{, }\StringTok{"Min"}\NormalTok{, }\StringTok{"1st Quintile"}\NormalTok{, }\StringTok{"2nd Quintile"}\NormalTok{, }\StringTok{"Median"}\NormalTok{, }\StringTok{"3rd Quintile"}\NormalTok{, }\StringTok{"4th Quintile"}\NormalTok{, }\StringTok{"Max"}\NormalTok{, }\StringTok{"Arithmetic Mean"}\NormalTok{, }\StringTok{"Arithmetic Standard Deviation"}\NormalTok{, }\StringTok{"Count"}\NormalTok{)}
+\CommentTok{\# use piping and kable function to output the table}
+\NormalTok{depthDiamonds }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{kable}\NormalTok{(}
+\CommentTok{\# add title, grid lines and align the numbers with words}
+\AttributeTok{caption =} \StringTok{"Statistics of the Depth vs Cut of a Diamond"}\NormalTok{,}
+\AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{,}
+\AttributeTok{align =} \FunctionTok{c}\NormalTok{(}\StringTok{"l"}\NormalTok{, }\FunctionTok{rep}\NormalTok{(}\StringTok{"c"}\NormalTok{, }\DecValTok{6}\NormalTok{))}
+\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{kableExtra}\SpecialCharTok{::}\FunctionTok{kable\_styling}\NormalTok{(}
+\AttributeTok{bootstrap\_options =} \FunctionTok{c}\NormalTok{(}\StringTok{"striped"}\NormalTok{, }\StringTok{"condensed"}\NormalTok{),}
+\AttributeTok{font\_size =} \DecValTok{16}
+\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{kableExtra}\SpecialCharTok{::}\FunctionTok{kable\_classic}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:Diamonds Data Summary Table}Statistics of the Depth vs Cut of a Diamond}
+\centering
+\fontsize{16}{18}\selectfont
+\begin{tabular}[t]{lcccccclccc}
+\toprule
+Cut & Min & 1st Quintile & 2nd Quintile & Median & 3rd Quintile & 4th Quintile & Max & Arithmetic Mean & Arithmetic Standard Deviation & Count\\
+\midrule
+Fair & 0 & 3.47 & 3.836 & 3.97 & 4.07 & 4.49 & 6.98 & 3.982770 & 0.6516384 & 1,610\\
+Good & 0 & 2.99 & 3.480 & 3.70 & 3.87 & 4.08 & 5.79 & 3.639507 & 0.6548925 & 4,906\\
+Very Good & 0 & 2.83 & 3.320 & 3.56 & 3.82 & 4.10 & 31.80 & 3.559801 & 0.7302281 & 12,082\\
+Premium & 0 & 2.85 & 3.440 & 3.72 & 3.94 & 4.26 & 8.06 & 3.647124 & 0.7311610 & 13,791\\
+Ideal & 0 & 2.75 & 3.060 & 3.23 & 3.52 & 4.05 & 6.03 & 3.401448 & 0.6576481 & 21,551\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The summary table of the diamonds data includes each cut of diamond and
+10 different statistics pertaining to the depth of the specific cut. A
+viewer can gain a sense of how many diamonds there are per cut, which
+type of cut has the highest maximum and much more. This summary table
+would be most useful when trying to gain specific statistics about the
+depth of a certain cut of a diamond.
+
+\hypertarget{knowledge-from-stat-184}{%
+\section{Knowledge from STAT 184}\label{knowledge-from-stat-184}}
+
+Stat 184 has taught me a lot of different things so far. Coming into
+this class, I had very little prior coding experience so I was very
+nervous. Although, as the class has continued, I have become more
+comfortable with reading code and typing it. I have also really enjoyed
+using the different packages within R, especially ggplot. I have also
+gained other knowledge about data visualizations from Kosslyn and Tufte.
+They specified things to avoid, like ducks, as well as things to include
+that will help make the visualization most pleasing to the eye. It has
+been very helpful to have all the slides and other material posted in
+order to look back on when getting confused. I have learned the
+importance of using tidy data and also how to wrangle the data so it is
+easier to work with. The lesson that I remember most and will continue
+to apply is the idea of PCIP. By following those steps, it has led me to
+solutions quicker. Before taking this class, I had zero experience in
+statistical coding and now I feel as if I have tremendously increased my
+knowledge on this topic.
+
+\end{document}
